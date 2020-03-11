@@ -1,0 +1,32 @@
+ETL PROJECT REPORT 3.10.20
+------------------------------------------------------------
+
+EXTRACT:
+Data for our ETL project came from the following sources:
+•	Data from Trumptwitterarchive.com extracted as a JSON file
+•	Stock data from Yahoofinace.com extracted with "yahoo_fin.stock_info import get_data".
+
+------------------------------------------------------------
+TRANSFORM:
+Before joining the two datasets:
+•	Trumptwitterarchive Data:
+o	Export the data as a JSON file
+o	Removed unnecessary columns
+o	Created data frame using Pandas.
+o	Removed the time stamp from the date by creating a new column to reflect date only
+o	Removed the column with date & time stamp.
+o	Reordered columns to match the stock data.
+
+•	Yahoo Stock Data:
+o	Stock data was read into Jupyter notebook.
+o	Reset index which was reflected as dates.
+o	Renamed index “date”
+o	Removed the time stamp from the date by creating a new column to reflect date only
+o	Removed the column with date & time stamp.
+o	Reordered column to match the stock data.
+
+-------------------------------------------------------------
+LOAD:
+It was decided the data would be loaded into an SQL database with “date” as Primary Key.
+•	Both datasets were loaded into SQL using SQLAlchemy
+•	Data tables were created for each of the different types of Stock Data (NASDAQ, Dow Jones, S&P and Russell) and a data table for the Trump Tweets data.
